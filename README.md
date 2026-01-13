@@ -42,7 +42,7 @@ add_to_app_poc/
 
 - **Flutter SDK**: 3.7.0 or higher
 - **iOS**: Xcode 15+, CocoaPods 1.11+, iOS 16+
-- **Android**: Android Studio, Gradle 8.2+, API 24+
+- **Android**: Android Studio, Gradle 8.2+, API 24+, **Java 17+** (required)
 
 ### 1️⃣ Clone the Repository
 
@@ -232,6 +232,46 @@ pod install
 cd flutter_module
 flutter pub get
 cd ../android_host_app
+./gradlew clean
+./gradlew build
+```
+
+### Android: Java Version Error (Unsupported class file major version 69)
+
+**Error**: `Unsupported class file major version 69` or `BUG! exception in phase 'semantic analysis'`
+
+**Cause**: Flutter's Gradle plugin was compiled with Java 21, but your system is using an older Java version.
+
+**Solution**: Ensure you're using Java 17 or higher (Java 17 is recommended for Android development):
+
+**Check your Java version:**
+```bash
+java -version
+```
+
+**If you need Java 17:**
+
+**macOS (using Homebrew):**
+```bash
+brew install openjdk@17
+# Add to your ~/.zshrc or ~/.bash_profile:
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+```
+
+**Or use Android Studio's bundled JDK:**
+```bash
+# Add to your ~/.zshrc or ~/.bash_profile:
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+```
+
+**Alternative**: Set Java home in `android_host_app/gradle.properties`:
+```properties
+org.gradle.java.home=/Applications/Android Studio.app/Contents/jbr/Contents/Home
+```
+
+After updating Java, run:
+```bash
+cd android_host_app
 ./gradlew clean
 ./gradlew build
 ```

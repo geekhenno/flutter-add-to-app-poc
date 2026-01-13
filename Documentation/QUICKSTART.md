@@ -6,7 +6,7 @@
 
 - **Flutter SDK**: 3.7.0 or higher
 - **iOS**: Xcode 15+, CocoaPods 1.11+, iOS 16+
-- **Android**: Android Studio, Gradle 8.2+, API 24+
+- **Android**: Android Studio, Gradle 8.2+, API 24+, **Java 17+** (required)
 
 ### 1️⃣ Clone the Repository
 
@@ -145,6 +145,31 @@ pod install
 cd android_host_app
 ./gradlew clean
 ./gradlew build
+```
+
+### Issue: "Unsupported class file major version 69"
+
+**Problem**: Flutter's Gradle plugin requires Java 17+, but your system is using an older version.
+
+**Check Java version:**
+```bash
+java -version
+```
+
+**Solution**: Use Java 17 or higher. The easiest way is to use Android Studio's bundled JDK:
+
+```bash
+# Add to ~/.zshrc or ~/.bash_profile:
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+
+# Then reload:
+source ~/.zshrc  # or source ~/.bash_profile
+```
+
+Or install Java 17 via Homebrew:
+```bash
+brew install openjdk@17
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 ```
 
 ### Issue: "Flutter module not found"
