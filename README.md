@@ -53,6 +53,8 @@ cd flutter-add-to-app-poc
 
 ### 2️⃣ Set Up Flutter Module
 
+**Important**: This step generates the `.ios` and `.android` directories needed for CocoaPods and Gradle.
+
 ```bash
 cd flutter_module
 flutter pub get
@@ -195,6 +197,19 @@ Comprehensive guides included:
 - **[PLATFORM_COMMUNICATION_GUIDE.md](./Documentation/PLATFORM_COMMUNICATION_GUIDE.md)** - MethodChannel usage
 
 ## 🐛 Troubleshooting
+
+### First Time Setup: Missing podhelper.rb
+
+**Error**: `cannot load such file -- ../flutter_module/.ios/Flutter/podhelper.rb`
+
+**Solution**: Run `flutter pub get` in flutter_module first (this generates the `.ios` directory):
+
+```bash
+cd flutter_module
+flutter pub get
+cd ../ios_host_app
+pod install
+```
 
 ### iOS: Build Errors
 
