@@ -1,0 +1,29 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://storage.googleapis.com/download.flutter.io'
+        }
+    }
+}
+
+rootProject.name = "android_host_app"
+include ':app'
+
+// Add Flutter module
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+    settingsDir.parentFile,
+    'flutter_module/.android/include_flutter.groovy'
+))
+
