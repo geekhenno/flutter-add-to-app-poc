@@ -15,7 +15,7 @@ A comprehensive proof-of-concept demonstrating Flutter's add-to-app approach wit
 ## 📁 Project Structure
 
 ```
-pocs/
+add_to_app_poc/
 ├── flutter_module/              # 🦋 Shared Flutter module
 │   ├── lib/main.dart           # Flutter UI with counter & communication
 │   └── pubspec.yaml            # Flutter dependencies
@@ -187,12 +187,12 @@ methodChannel.setMethodCallHandler { call, result ->
 
 Comprehensive guides included:
 
-- **[ARCHITECTURE_EXPLAINED.md](./ARCHITECTURE_EXPLAINED.md)** - Deep dive into how everything works
-- **[ANDROID_VS_IOS.md](./ANDROID_VS_IOS.md)** - Platform comparison and insights
+- **[ARCHITECTURE_EXPLAINED.md](./Documentation/ARCHITECTURE_EXPLAINED.md)** - Deep dive into how everything works
+- **[ANDROID_VS_IOS.md](./Documentation/ANDROID_VS_IOS.md)** - Platform comparison and insights
 - **[MEMORY_LEAK_FIX.md](./ios_host_app/MEMORY_LEAK_FIX.md)** - iOS memory management
 - **[SCROLL_FIX_SOLUTION.md](./ios_host_app/SCROLL_FIX_SOLUTION.md)** - iOS scroll problem solution
-- **[QUICKSTART.md](./QUICKSTART.md)** - Quick setup guide
-- **[PLATFORM_COMMUNICATION_GUIDE.md](./PLATFORM_COMMUNICATION_GUIDE.md)** - MethodChannel usage
+- **[QUICKSTART.md](./Documentation/QUICKSTART.md)** - Quick setup guide
+- **[PLATFORM_COMMUNICATION_GUIDE.md](./Documentation/PLATFORM_COMMUNICATION_GUIDE.md)** - MethodChannel usage
 
 ## 🐛 Troubleshooting
 
