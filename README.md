@@ -72,6 +72,8 @@ open ios_host_app.xcworkspace
 
 ### 4️⃣ Run Android App
 
+**Note**: Make sure you completed step 2️⃣ (`flutter pub get`) first to generate the `.android` directory.
+
 ```bash
 cd ../android_host_app
 # Open in Android Studio and click Run ▶️
@@ -220,12 +222,18 @@ pod install
 # Clean build folder in Xcode (⇧⌘K)
 ```
 
-### Android: Gradle Sync Failed
+### Android: Build Errors or Gradle Sync Failed
+
+**Error**: Flutter plugin compilation errors or missing `.android` directory
+
+**Solution**: Run `flutter pub get` first (generates the `.android` directory), then clean and rebuild:
 
 ```bash
-cd android_host_app
+cd flutter_module
+flutter pub get
+cd ../android_host_app
 ./gradlew clean
-./gradlew build --refresh-dependencies
+./gradlew build
 ```
 
 ### Flutter: Module Not Found
